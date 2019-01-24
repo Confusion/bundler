@@ -111,7 +111,7 @@ namespace :spec do
     (branches + releases).each do |rg|
       desc "Run specs with RubyGems #{rg}"
       task rg do
-        sh("bin/rspec --format progress")
+        sh("bin/parallel_rspec spec/")
       end
 
       # Create tasks like spec:rubygems:v1.8.3:sudo to run the sudo specs
@@ -130,7 +130,7 @@ namespace :spec do
 
     desc "Run specs under a RubyGems checkout (set RGV=path)"
     task "co" do
-      sh("bin/rspec --format progress")
+      sh("bin/parallel_rspec spec/")
     end
 
     namespace "co" do

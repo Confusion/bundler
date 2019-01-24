@@ -13,6 +13,7 @@ branches:
     - trying
     - /.+-dev$/
     - /.+-stable$/
+    - parallel_rspec
 
 cache:
   directories:

@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+load File.expand_path("../with_rubygems", __FILE__) if ENV["RGV"]
+
+require "rubygems"
+
+bundler_spec = Gem::Specification.load(File.expand_path("../../bundler.gemspec", __FILE__))
+
+parallel_rspec = bundler_spec.development_dependencies.find do |dep|
+  dep.name == "parallel_rspec"
+end
+
+parallel_rspec_requirement = parallel_rspec.requirement.to_s
+
+begin
+  gem "parallel_rspec", parallel_rspec_requirement
+  load Gem.bin_path("parallel_tests", "parallel_rspec")
+rescue Gem::LoadError
+  warn "We couln't activate parallel_rspec (#{parallel_rspec_requirement}). Try `gem install parallel_rspec:'#{parallel_rspec_requirement}'`"
+end
