@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version     = ">= 2.3.0"
   s.required_rubygems_version = ">= 2.5.0"
 
-  s.add_development_dependency "automatiek", "~> 0.1.0"
+  s.add_development_dependency "automatiek", "~> 0.2.0"
   s.add_development_dependency "rake",       "~> 12.0"
   s.add_development_dependency "ronn",       "~> 0.7.3"
   s.add_development_dependency "rspec",      "~> 3.6"
